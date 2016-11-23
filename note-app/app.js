@@ -13,7 +13,7 @@ const _     = require('lodash');
 // console.log(_.isString('Alan'));
 
 // Exercise 2 for 3rd Party modules - _.uniq()
-var filteredArray = _.uniq(["Alan", "Alan", 26, 11,11, 44,45,75]);
+var filteredArray = _.uniq(["Alan", "Carl", "Tin", "Tin", 26, 11,11, 44,45,75]);
 
 // The function will return a new array without the duplicates
 console.log(filteredArray, 'New array length:', filteredArray.length);
