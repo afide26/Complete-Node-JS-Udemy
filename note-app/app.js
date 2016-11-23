@@ -2,20 +2,30 @@ console.log("Starting app.js");
 
 const fs    = require('fs');
 const _     = require('lodash');
+const yargs = require('yargs');
 
 const notes = require('./notes.js');
-console.log(process.argv)
-var command = process.argv[2];
-console.log('Command:',command.toUpperCase());
 
-if(command.toLowerCase() === 'add'){
-  console.log("Adding new note");
-}else if(command.toLowerCase() ==='list'){
-  console.log("Listing all notes");
-}else if(command.toLowerCase() ==="read"){
-  console.log("Reading a note");
-}else if(command.toLowerCase() ==="remove"){
-  console.log("Removing a note");
+// Set a constant to store yargs library of the args the app ran with
+const argv  = yargs.argv;
+var command = argv._[0];
+if(command){
+console.log('Command:',command.toUpperCase());
+}
+// Check the difference between argv and yargs.arv, message);
+
+console.log('Yargs:', argv);
+
+if(command ===undefined){
+   console.log("Command is undefined");
+}else if(command.toLowerCase()=== 'add'){
+  notes.addNote(argv.title, argv.body);
+}else if(command.toLowerCase()=== 'remove'){
+  notes.removeNote(argv.title);
+}else if(command.toLowerCase()=== 'read'){
+  notes.getNote(argv.title);
+}else if(command.toLowerCase()=== 'list'){
+  notes.getAll();
 }else{
   console.log("Command not recognised");
 }
