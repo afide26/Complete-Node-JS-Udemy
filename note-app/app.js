@@ -12,7 +12,9 @@ var command = argv._[0];
 if(command){
 console.log('Command:',command.toUpperCase());
 }
-// Check the difference between argv and yargs.argv, message);
+
+// Check the difference between argv and yargs.arv, message);
+
 
 console.log('Yargs:', argv);
 
