@@ -14,9 +14,8 @@ console.log('Command:',command.toUpperCase());
 }
 
 // Check the difference between argv and yargs.arv, message);
-
-
 console.log('Yargs:', argv);
+
 
 if(command ===undefined){
    console.log("Command is undefined");
@@ -24,18 +23,22 @@ if(command ===undefined){
   var note = notes.addNote(argv.title, argv.body);
   if(note){
     console.log("New note created");
-    console.log("----------------");
-    console.log(`Title: ${note.title}`);
-    console.log(`Body: ${note.body}`);
+    notes.logNote(note);
   }else{
-    console.log("The note already exists")
+    console.log(`The note ${argv.title} already exists`)
   }
 }else if(command.toLowerCase()=== 'remove'){
   var noteRemoved= notes.removeNote(argv.title);
-  var message = noteRemoved ? "Note was removed" : "Note not found";
+  var message = noteRemoved ? `Note ${argv.title} was removed` : `Note with the title ${argv.title} not found`;
   console.log(message);
 }else if(command.toLowerCase()=== 'read'){
-  notes.getNote(argv.title);
+  var note = notes.getNote(argv.title);
+  if(note){
+    console.log("Note found");
+    notes.logNote(note);
+  }else{
+    console.log(`Note with the title ${argv.title} not found`);
+  }
 }else if(command.toLowerCase()=== 'list'){
   notes.getAll();
 }else{

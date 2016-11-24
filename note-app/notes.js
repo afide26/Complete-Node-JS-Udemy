@@ -2,6 +2,11 @@ console.log("Starting notes.js");
 const fs = require('fs');
 
 // Add 2 new functions for reusability
+var logNote = function(note){
+  console.log("----------------");
+  console.log(`Title: ${note.title}`);
+  console.log(`Body: ${note.body}`);
+};
 
 var fetchNotes = ()=>{
   // Write a try catch to solve the problem if notes-data.json does not exist
@@ -42,7 +47,9 @@ var getAll = ()=>{
 };
 
 var getNote = (title) =>{
-  console.log("Getting note", title);
+  var notes = fetchNotes();
+  var filteredNotes= notes.filter((note)=> note.title === title);
+  return filteredNotes[0]
 };
 
 var removeNote = (title) => {
@@ -66,5 +73,6 @@ module.exports = {
   addNote,
   getAll,
   getNote,
-  removeNote
+  removeNote,
+  logNote
 };
