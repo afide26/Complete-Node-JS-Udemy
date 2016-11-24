@@ -21,7 +21,15 @@ console.log('Yargs:', argv);
 if(command ===undefined){
    console.log("Command is undefined");
 }else if(command.toLowerCase()=== 'add'){
-  notes.addNote(argv.title, argv.body);
+  var note = notes.addNote(argv.title, argv.body);
+  if(note){
+    console.log("New note created");
+    console.log("----------------");
+    console.log(`Title: ${note.title}`);
+    console.log(`Body: ${note.body}`);
+  }else{
+    console.log("The note already exists")
+  }
 }else if(command.toLowerCase()=== 'remove'){
   notes.removeNote(argv.title);
 }else if(command.toLowerCase()=== 'read'){
