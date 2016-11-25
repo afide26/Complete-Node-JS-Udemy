@@ -1,5 +1,3 @@
-console.log("Starting app.js");
-
 const fs    = require('fs');
 const _     = require('lodash');
 const yargs = require('yargs');
@@ -12,9 +10,6 @@ var command = argv._[0];
 if(command){
 console.log('Command:',command.toUpperCase());
 }
-
-// Check the difference between argv and yargs.arv, message);
-console.log('Yargs:', argv);
 
 
 if(command ===undefined){
@@ -40,7 +35,23 @@ if(command ===undefined){
     console.log(`Note with the title ${argv.title} not found`);
   }
 }else if(command.toLowerCase()=== 'list'){
-  notes.getAll();
+  console.log("----------------");
+  var allNotes = notes.getAll();
+  console.log(`Printing ${allNotes.length} notes`);
+  allNotes.forEach((note)=> notes.logNote(note));
 }else{
   console.log("Command not recognised");
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
