@@ -2,3 +2,4 @@
 
 ###Section and Projects
 1. Note App - see versions for lessons
+2. Weather App - callback and event loops, use of APIs
