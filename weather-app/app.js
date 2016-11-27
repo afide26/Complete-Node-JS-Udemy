@@ -9,5 +9,8 @@ request({
   json: true
 
 },(error, response, body)=>{
-  console.log(body);
+  // As the request file(JSON) was converted to an object
+  // The response needs to be converted to JSON, this time with
+  // 3 arguments, the object, undefined and the 3rd argument which is the number of lines each object should have
+  console.log(JSON.stringify(body, undefined, 2));
 });
