@@ -1,7 +1,7 @@
 const request = require('request');
 var toCelsius = (temp)=>{
   return parseFloat((temp-32)*5/9).toFixed(1);
-}
+};
 var getWeather = (lat,lng, callback)=>{
   request({
     url:"https://api.darksky.net/forecast/d79243fcc7770a73c43306d466b29990/"+lat+","+lng,
