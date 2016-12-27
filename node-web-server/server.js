@@ -1,22 +1,31 @@
 const express = require('express');
+const hbs = require('hbs');
+
+
 
 var app = express();
 var port = process.env.PORT || 3000;
 
 // Set-up the middleware
 app.use(express.static(__dirname+'/public'));
+// Set-up the templating engine
+app.set("view engine", "hbs");
 
 
 app.get("/", (req, res)=>{
-  // res.send("<h1>Hello Express!</h1>");
-  res.send({
-    name: 'Alan',
-    likes: ["Martial Arts", "Self-Help", "Programming"]
-  });
+  res.render("home.hbs", {
+    pageTitle: "Home Page",
+    currentYear: new Date().getFullYear(),
+    welcomeMessage: "Welcome to the home page"
+  })
 });
 
 app.get("/about", (req, res)=>{
-  res.send('About Page');
+  res.render('about.hbs', {
+    pageTitle: "Some website",
+    // Syntax to get a dynamic current year
+    currentYear: new Date().getFullYear()
+  });
 });
 
 
