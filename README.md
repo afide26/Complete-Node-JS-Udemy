@@ -5,3 +5,4 @@
 2. Weather App - callback and event loops, use of APIs
 3. Used handlebars as template engine
 4. Activate gitignore
+5. Deploy App to Heroku
