@@ -3,3 +3,5 @@
 ###Section and Projects
 1. Note App - see versions for lessons
 2. Weather App - callback and event loops, use of APIs
+3. Used handlebars as template engine
+4. Activate gitignore
